@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   authenticationApiUrl: 'https://localhost:44348/api',
   productsApiUrl: 'https://localhost:44309/api',
-  accountApiUrl: 'https://localhost:45002/api',
+  accountApiUrl: 'https://localhost:44327/api',
 };
 
 /*
