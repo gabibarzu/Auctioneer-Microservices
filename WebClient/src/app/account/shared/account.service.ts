@@ -5,25 +5,23 @@ import { map } from 'rxjs/operators';
 
 import { Product } from '../../shared/models';
 import { AccountStat } from './models';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AccountService {
-  apiUrl: string;
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    this.apiUrl = baseUrl + 'api';
-  }
+  constructor(private http: HttpClient) {}
 
   getAccountStat(): Observable<AccountStat> {
     return this.http
-      .get(this.apiUrl + '/Account/GetAccountStat')
+      .get(environment.accountApiUrl + '/Account/GetAccountStat')
       .pipe(map((result) => result as AccountStat));
   }
 
   getProducts(): Observable<Product[]> {
     return this.http
-      .get(this.apiUrl + '/Account/GetProducts')
+      .get(environment.accountApiUrl + '/Account/GetProducts')
       .pipe(map((result) => result as Product[]));
   }
 }

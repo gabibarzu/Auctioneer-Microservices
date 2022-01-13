@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using ProductsApi.Entities;
@@ -21,7 +22,7 @@ namespace ProductsApi.Controllers
 
         // GET: api/<CategoryController>
         [HttpGet]
-        //[Authorize]
+        [Authorize]
         public List<Category> Get()
         {
             return _service.GetCategories();
@@ -29,7 +30,7 @@ namespace ProductsApi.Controllers
 
         // GET api/<CategoryController>/5
         [HttpGet("{id}")]
-        //[Authorize]
+        [Authorize]
         public Category Get(Guid id)
         {
             return this._service.GetCategoryById(id);
